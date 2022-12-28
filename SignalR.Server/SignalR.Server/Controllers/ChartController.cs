@@ -19,7 +19,7 @@ public class ChartController : ControllerBase
     public IActionResult Get()
     {
         if (!_timer.IsTimerStarted)
-            _timer.PrepareTimer(() => _hub.Clients.All.SendAsync("TransferChartData", DataManager.GetData()));
+            _timer.PrepareTimer(() => _hub.Clients.All.SendAsync("TransferData", DataManager.GetData()));
         return Ok(new { Message = "Request Completed" });
     }
 }

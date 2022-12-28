@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignalrService } from './services/signalr.service';
 import { HttpClient } from '@angular/common/http';
-import { ChartConfiguration, ChartType } from 'chart.js';
 
 
 @Component({
@@ -10,15 +9,7 @@ import { ChartConfiguration, ChartType } from 'chart.js';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  chartOptions: ChartConfiguration['options'] = {
-    responsive: true,
-    scales: {
-      y: {
-        min: 0
-      }
-    }
-  };
-
+  
   constructor(public signalRService: SignalrService, private http: HttpClient) { }
 
   ngOnInit() {

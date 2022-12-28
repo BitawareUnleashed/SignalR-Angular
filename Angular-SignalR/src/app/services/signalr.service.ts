@@ -6,8 +6,7 @@ import { ChartModel } from '../_interfaces/chartmodel.model';
   providedIn: 'root'
 })
 export class SignalrService {
-  public data: ChartModel[] = [];
-  public bradcastedData: ChartModel[] = [];
+  public Data: ChartModel[] = [];
   private hubConnection: signalR.HubConnection=new signalR.HubConnectionBuilder()
                     .configureLogging(signalR.LogLevel.Information)
                     .withUrl('https://localhost:7267/chart')
@@ -29,14 +28,14 @@ export class SignalrService {
     }
     
     public addTransferChartDataListener = () => {
-      this.hubConnection.on('transferchartdata', (data) => {
-        this.data = data;
+      this.hubConnection.on('transferdata', (data) => {
+        this.Data = data;
         console.log(data);
       });
     }
 
     public broadcastChartData = () => {
-      const data = this.data.map(m => {
+      const data = this.Data.map(m => {
         const temp = {
           data: m.data,
           label: m.label
@@ -50,7 +49,7 @@ export class SignalrService {
 
     public addBroadcastChartDataListener = () => {
       this.hubConnection.on('broadcastchartdata', (data) => {
-        this.bradcastedData = data;
+        //this.bradcastedData = data;
       })
     }
 }

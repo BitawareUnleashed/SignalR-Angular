@@ -6,10 +6,10 @@ public class DataManager
         var r = new Random();
         return new List<ChartModel>()
             {
-                new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data1", BackgroundColor = "#5491DA" },
-                new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data2", BackgroundColor = "#E74C3C" },
-                new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data3", BackgroundColor = "#82E0AA" },
-                new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data4", BackgroundColor = "#E5E7E9" }
+                new ChartModel { Data = r.Next(1, 100) , Label = "Sky", BackgroundColor = "#5491DA" },
+                new ChartModel { Data = r.Next(1, 100) , Label = "Fire", BackgroundColor = "#E74C3C" },
+                new ChartModel { Data = r.Next(1, 100) , Label = "Grass", BackgroundColor = "#82E0AA" },
+                new ChartModel { Data = r.Next(1, 100) , Label = "Building", BackgroundColor = "#E5E7E9" }
             };
     }
 }

@@ -10,18 +10,14 @@ public class TimerManager
     {
         _action = action;
         _autoResetEvent = new AutoResetEvent(false);
-        _timer = new Timer(Execute, _autoResetEvent, 1000, 2000);
+        _timer = new Timer(Execute, _autoResetEvent, 100, 100);
         TimerStarted = DateTime.Now;
         IsTimerStarted = true;
     }
     public void Execute(object? stateInfo)
     {
+        if (_action is null) return;
         _action();
-        if ((DateTime.Now - TimerStarted).TotalSeconds > 60)
-        {
-            IsTimerStarted = false;
-            _timer.Dispose();
-        }
     }
 }
 

@@ -6,17 +6,13 @@
   <title>Document</title>
 </head>
 <body>
-  
-
-  <div style="display: block" *ngIf='signalRService.data'>
-    <!-- <br><br>
     <ul>
-      <li *ngFor='let data of signalRService.bradcastedData'>
-        <strong>Label: </strong> {{data.label}} - <strong>Value: </strong> {{data.data[0]}}
+      
+      <li *ngFor='let data of signalRService.Data'>
+        <div [ngStyle]="{'background-color': data.backgroundColor}">
+          <strong>Label: </strong> {{data.label}} - <strong>Value: </strong> {{data.data}}
+        </div>
       </li>
-    </ul> -->
-    
- </div>
-
+    </ul>
 </body>
 </html>
